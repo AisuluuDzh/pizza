@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' href='/webjars/bootstrap/3.3.6/css/bootstrap.min.css'>
+</head>
+<body>
+<div class="container">
+    <div class="table">
+        <h3> Добавление нового продукта</h3>
+        <h4><span th:utext="${Error}"></span></h4>
+        <form autocomplete="off"  class="form-horizontal" th:object="${orders}" th:action="@{/orders/create}" method="post" role="form">
+            <table class="table">
+                <tr>
+                    <td width="120">Наименование:</td>
+                    <td width="320">
+                        <select class="form-control" aria-describedby="status-addon" th:field="*{product}">
+                            <option th:each="r : ${listProduct}"
+                                    th:value="${r.id}"
+                                    th:text="${r.name}">Status</option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td width="120">Количество:</td>
+                    <td width="320">
+                        <input type="text" class="form-control" th:field="*{Qty}"/></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td><button type="submit" class="btn btn-primary">Добавить</button></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</div>
+
+<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>

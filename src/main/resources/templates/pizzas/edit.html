@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+	<div class="rows">
+		<h3> Редактирование продукта</h3>
+		<h4><span th:utext="${Error}"></span></h4>
+		<form autocomplete="off" class="form-horizontal" th:object="${pizzas}" th:action="@{/admin/pizzas/edit}" method="post"
+					role="form">
+			<input type="hidden" th:field="*{id}"/>
+			<table class="table">
+				<tr>
+					<td width="120">Наименование:</td>
+					<td width="320">
+						<input type="text" class="form-control" th:field="*{name}"/></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td width="120">Цена:</td>
+					<td width="320">
+						<input type="text" class="form-control" th:field="*{price}"/></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<button type="submit" class="btn btn-primary">Сохранить</button>
+					</td>
+					<td></td>
+				</tr>
+			</table>
+		</form>
+
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div class="container">
+    <h1>Клиенты</h1>
+    <div class="rows">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Orders</th>
+                <th>ПРинес прибыли</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.getOrders().size()}"></td>
+                <td th:text="${user.moneySpent()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+	(function () {
+		var delBtns = document.getElementsByClassName("delete");
+		for (var i = 0; i < delBtns.length; i++) {
+			delBtns[i].addEventListener("click", function (event) {
+				if (!confirm("Вы хотите удалить?")) {
+					event.preventDefault();
+					return;
+				}
+			})
+		}
+	})()
+</script>
+</body>
+</html>

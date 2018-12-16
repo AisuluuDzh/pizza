@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>
+        Добро пожаловать!!!
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container">
+    <h1 th:text="'Спасибо ' + ${user.name} + ' за покупку!!!'"></h1>
+    <div class="row">
+        <h5 th:text="'Сумма заказа' + ${totalPrice}"></h5>
+    </div>
+    <a th:href="@{/}" class="btn btn-primary">На главную</a>
+
+</div>
+</body>
+</html>

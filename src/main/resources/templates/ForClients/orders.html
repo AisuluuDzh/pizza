@@ -1,0 +1,58 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>
+        Добро пожаловать!!!
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container">
+    <h1>
+        Вы заказали
+    </h1>
+
+    <a th:href="@{/}" class="btn btn-primary">Просмотреть пицы</a>
+    <hr class="mb-3">
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="orderedPizza : ${orders}" >
+                    <td th:text="${orderedPizza.pizza.name}">
+
+                    </td>
+                    <td th:text="${orderedPizza.pizza.price}"> </td>
+                    <td>
+                        <a onclick="return confirm('Вы действительно хотите отменить заказ?')" class="btn btn-danger" th:href="@{/order/delete/{id}(id=${orderedPizza.id})}">Отменить</a>
+                    </td>
+
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <p th:text="'Общая цена: ' + ${totalPrice}"></p>
+
+        <hr class="mb-3">
+        <a onclick="return confirm('Вы действительно хотите потведить заказ?')" th:href="@{/order/checkout}" class="btn btn-success">Потвердить заказ</a>
+
+    </div>
+
+</div>
+</body>
+</html>

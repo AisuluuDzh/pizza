@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+	<h1>Welcome!!</h1>
+	<p th:text="${titles}"></p>
+	<div class="rows">
+		<a th:href="@{/admin/pizzas/index}" class="btn btn-success">Пиццы</a>
+	</div>
+
+	<div class="row">
+		<div class="col-12">
+			<h1 class="display-4">Статистика пиццерии</h1>
+		</div>
+		<div class="col-3">
+			<div class="card bg-light mb-3" style="max-width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">Список всех клиентов</h5>
+					<p class="card-text" th:text="${clientsCount}">2432</p>
+				</div>
+				<div class="card-header"><a th:href="@{/admin/clientstats}" class="btn btn-link">Подробнее</a> </div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card bg-light mb-3" style="max-width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">Список заказанных</h5>
+					<p class="card-text" th:text="${orderedCount}">2432</p>
+				</div>
+				<div class="card-header"><a th:href="@{/admin/orderstats}" class="btn btn-link">Подробнее</a></div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card bg-light mb-3" style="max-width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">Список проданных</h5>
+					<p class="card-text" th:text="${soltCount}">2432</p>
+				</div>
+				<div class="card-header"><a th:href="@{/admin/soltstats}" class="btn btn-link">Подробнее</a></div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="card bg-light mb-3" style="max-width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">Общая сумма</h5>
+					<p class="card-text" th:text="${totalMoney}">2432</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

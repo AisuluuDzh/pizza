@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div class="container">
+    <h1>Заказы</h1>
+    <div class="rows">
+        <table class="table" th:if="${orders.size() > 0}">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Пицца</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Сумма</th>
+                <th>Дата</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="order : ${orders}">
+                <td th:text="${order.id}"></td>
+                <td th:text="${order.pizza.name}"></td>
+                <td th:text="${order.pizza.price}"></td>
+                <td th:text="${order.count}"></td>
+                <td th:text="${order.getTotalPrice()}"></td>
+                <td th:text="${order.date}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p class="lead" th:if="${orders.size() == 0}">
+            Список пуст
+        </p>
+    </div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+	(function () {
+		var delBtns = document.getElementsByClassName("delete");
+		for (var i = 0; i < delBtns.length; i++) {
+			delBtns[i].addEventListener("click", function (event) {
+				if (!confirm("Вы хотите удалить?")) {
+					event.preventDefault();
+					return;
+				}
+			})
+		}
+	})()
+</script>
+</body>
+</html>

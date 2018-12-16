@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' href='/webjars/bootstrap/3.3.6/css/bootstrap.min.css'>
+</head>
+<body>
+<h1>Список заказов!!</h1>
+<p>
+    <a th:href="@{/orders/create}" class="btn btn-success btn-xs">Добавить</a>
+</p>
+<div class="container">
+    <div class="rows">
+        <table class="table">
+            <tr>
+                <td>Name</td>
+                <td>Qty</td>
+                <td></td>
+            </tr>
+            <tr th:each="order : ${orders}">
+                <td th:text="${order.product.name}">Onions</td>
+                <td th:text="${order.Qty}">2.41</td>
+                <td>
+                    <a th:href="@{/orders/edit/{id}(id=${order.id})}" class="btn btn-success btn-xs">Редактировать</a>
+                    <a th:href="@{/orders/delete/{id}(id=${order.id})}" class="btn btn-danger btn-xs">Удалить</a>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+
+<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>
